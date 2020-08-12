@@ -14,7 +14,7 @@ export const DevTest = () => {
         ipcRenderer.send("overlay-action", OVERLAY_OPEN);
     };
 
-    const closePopUp = () => {
+    const closeOverlay = () => {
         ipcRenderer.send("overlay-action", OVERLAY_CLOSE);
     };
 
@@ -22,7 +22,7 @@ export const DevTest = () => {
         <>
             <h1>Hi from a react app</h1>
             <Button onClickHandler={openOverlay}>Draw Overlay</Button>
-            <Button onClickHandler={closePopUp}>Close Overlay</Button>
+            <Button onClickHandler={closeOverlay}>Close Overlay</Button>
         </>
     );
 };
