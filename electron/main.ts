@@ -1,17 +1,13 @@
-import { app, BrowserWindow } from "electron";
+import { app } from "electron";
 import * as path from "path";
 import * as url from "url";
 
+import { DefaultBrowserWindow } from "./browser-windows";
+
 let mainWindow: Electron.BrowserWindow | null;
 
-function createWindow() {
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            nodeIntegration: true,
-        },
-    });
+const createWindow = (): void => {
+    mainWindow = new DefaultBrowserWindow();
 
     if (process.env.NODE_ENV === "development") {
         mainWindow.loadURL(`http://localhost:4000`);
@@ -28,7 +24,9 @@ function createWindow() {
     mainWindow.on("closed", () => {
         mainWindow = null;
     });
-}
+};
+
+require("./ipc-main");
 
 app.on("ready", createWindow);
 app.allowRendererProcessReuse = true;
