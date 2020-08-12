@@ -9,5 +9,5 @@ export const Button = ({
     children,
     onClickHandler,
 }: ButtonProps): JSX.Element => {
-    return <button onClick={(e) => onClickHandler(e)}>{children}</button>;
+    return <button onClick={() => onClickHandler()}>{children}</button>;
 };

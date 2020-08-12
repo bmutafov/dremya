@@ -1,13 +1,10 @@
 import React from "react";
 import { Button } from "../components/Button";
-const { ipcRenderer } = require("electron");
+import { ipcRenderer } from "electron";
+import { OverlayData } from "../../common/Interfaces/OverlayData";
 
-interface OverlayData {
-    type: string;
-}
-
-const OVERLAY_OPEN: OverlayData = { type: "OPEN" };
-const OVERLAY_CLOSE: OverlayData = { type: "CLOSE" };
+const OVERLAY_OPEN: OverlayData = { action: "OPEN" };
+const OVERLAY_CLOSE: OverlayData = { action: "CLOSE" };
 
 export const DevTest = () => {
     const openOverlay = () => {
