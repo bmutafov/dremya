@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     resolve: {
-        extensions: [".tsx", ".ts", ".js"],
+        extensions: [".tsx", ".ts", ".js", ".css", ".scss"],
         mainFields: ["main", "module", "browser"],
     },
     entry: "./src/app.tsx",
@@ -17,6 +17,21 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                 },
+            },
+            // {
+            //     test: /\.css$/i,
+            //     use: ["style-loader", "css-loader"],
+            // },
+            {
+                test: /\.css$/i,
+                use: [
+                    "style-loader",
+                    "@teamsupercell/typings-for-css-modules-loader",
+                    {
+                        loader: "css-loader",
+                        options: { modules: true },
+                    },
+                ],
             },
         ],
     },
