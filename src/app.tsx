@@ -4,6 +4,8 @@ import ReactDom from "react-dom";
 const mainElement = document.createElement("div");
 document.body.appendChild(mainElement);
 
+import "./app.css";
+
 const App = () => {
     return <h1>Hi from a react app</h1>;
 };
