@@ -18,9 +18,20 @@ module.exports = {
                     loader: "babel-loader",
                 },
             },
+            // {
+            //     test: /\.css$/i,
+            //     use: ["style-loader", "css-loader"],
+            // },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: [
+                    "style-loader",
+                    "@teamsupercell/typings-for-css-modules-loader",
+                    {
+                        loader: "css-loader",
+                        options: { modules: true },
+                    },
+                ],
             },
         ],
     },
